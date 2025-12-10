@@ -1,0 +1,9 @@
+menu "ATOMVM_HELLO_NIF Configuration"
+
+    config AVM_HELLO_NIF_ENABLE
+        bool "Enable Hello NIF example"
+        default y
+        help
+            Enable the HelloNif example AtomVM component.
+
+endmenu
