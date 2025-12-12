@@ -8,7 +8,10 @@ defmodule SampleApp.MixProject do
       elixir: "~> 1.17",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      atomvm: atomvm()
+      atomvm: [
+        start: SampleApp,
+        flash_offset: 0x250000
+      ]
     ]
   end
 
@@ -22,14 +25,7 @@ defmodule SampleApp.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:exatomvm, git: "https://github.com/atomvm/ExAtomVM/"}
-    ]
-  end
-
-  def atomvm do
-    [
-      start: SampleApp,
-      flash_offset: 0x250000
+      {:exatomvm, github: "atomvm/ExAtomVM"}
     ]
   end
 end
