@@ -383,6 +383,26 @@ doctor_cmd() {
   fi
 
   say ""
+
+  say "Inspect"
+
+  if [ -d "${esp32_dir}/components" ]; then
+    say "- components:   ${esp32_dir}/components"
+    run ls -1 "${esp32_dir}/components"
+  else
+    say "- components:   missing (${esp32_dir}/components)"
+  fi
+
+  say ""
+
+  if [ -f "${esp32_dir}/sdkconfig.defaults" ]; then
+    say "- sdkconfig.defaults: ${esp32_dir}/sdkconfig.defaults"
+    run cat "${esp32_dir}/sdkconfig.defaults"
+  else
+    say "- sdkconfig.defaults: missing (${esp32_dir}/sdkconfig.defaults)"
+  fi
+
+  say ""
 }
 
 install_cmd() {
